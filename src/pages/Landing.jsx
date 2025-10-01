@@ -14,7 +14,7 @@ import { Button } from "../components/ui/button";
 // Earth component using GLTF model
 function Earth() {
   const group = useRef();
-  const { scene } = useGLTF('/earth.gltf');
+  const { scene } = useGLTF(import.meta.env.BASE_URL + 'earth.gltf');
   
   useFrame(() => {
     if (group.current) {
@@ -40,7 +40,7 @@ function Earth() {
 }
 
 // Preload the model
-useGLTF.preload('/earth.gltf');
+useGLTF.preload(import.meta.env.BASE_URL + 'earth.gltf');
 
 export default function Landing() {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -176,7 +176,7 @@ export default function Landing() {
       <section className="relative w-full h-screen">
         {/* Background Image */}
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ 
-          backgroundImage: 'url(/landingbg.jpg)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}landingbg.jpg)`,
           zIndex: 0
         }}>
           {/* Dark overlay */}
