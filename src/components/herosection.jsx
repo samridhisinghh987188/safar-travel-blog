@@ -31,7 +31,7 @@ export default function VideoMapSection() {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        src="/Videos/mapcomponentmotion.mp4"
+        src={`${import.meta.env.BASE_URL}Videos/mapcomponentmotion.mp4`}
         style={{ 
           transform: 'translateZ(0)',
           imageRendering: 'pixelated',
