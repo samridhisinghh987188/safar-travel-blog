@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Welcome to My Travel Blog!",
+      "location": "Virtual",
+      "description": "This is your first blog post. Start sharing your travel experiences here!",
+      "rating": 5,
+      "image": "/placeholder.svg",
+      "date": "2025-09-25"
+    }
+  ]
+}
