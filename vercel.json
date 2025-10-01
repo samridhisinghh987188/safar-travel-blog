@@ -17,12 +17,14 @@
       }
     },
     {
-      "src": "/Videos/(.*)",
-      "dest": "/Videos/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/index.html",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      }
     }
-  ]
+  ],
+  "mimeTypes": {
+    ".js": "application/javascript"
+  }
 }

@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
   
   return {
-    base: isProduction ? '/safar-travel-blog/' : '/',
+    base: '/',
     plugins: [react()],
     resolve: {
       alias: {
@@ -29,7 +29,13 @@ export default defineConfig(({ mode }) => {
       outDir: 'dist',
       assetsDir: 'assets',
       emptyOutDir: true,
-      sourcemap: true,
+      sourcemap: false, // Disable sourcemaps for production
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
+      },
       assetsInlineLimit: 0, // Ensure all assets are emitted as files
       rollupOptions: {
         output: {
