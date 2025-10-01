@@ -13,18 +13,13 @@
     {
       "src": "/assets/(.*)",
       "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
+        "cache-control": "public, max-age=31536000, immutable",
+        "Content-Type": "application/javascript"
       }
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "Content-Type": "text/html; charset=utf-8"
-      }
+      "dest": "/index.html"
     }
-  ],
-  "mimeTypes": {
-    ".js": "application/javascript"
-  }
+  ]
 }
