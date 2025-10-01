@@ -3,6 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AirplaneRoute from "@/components/AirplaneRoute";
+import heroImage from '../../public/homepage2.png';
+import landingImage from '../../public/landingbg.jpg';
+import fallbackImage from '../../public/placeholder.jpg';
 
 // HomePage2: experimental homepage with 2-scroll sections
 // Hero image notes:
@@ -32,22 +35,22 @@ export default function HomePage2() {
     };
   }, [location]);
   
-  // Using import.meta.env.BASE_URL for Vercel compatibility
-  const heroSrc = `${import.meta.env.BASE_URL}homepage2.png`; // using your uploaded image from public/homepage2
-  const heroSrcAlt = `${import.meta.env.BASE_URL}landingbg.jpg`; // alternative background
-  const fallbackHero = `${import.meta.env.BASE_URL}dramatic-coastline-ocean-cliffs-sunset.jpg`;
+  // Image paths
+  const heroSrc = heroImage;
+  const heroSrcAlt = landingImage;
+  const fallbackHero = fallbackImage;
 
-  // Toggle gallery images from public/toggle folder
+  // Import toggle gallery images
   const toggleImages = [
-    `${import.meta.env.BASE_URL}toggle/pexels-ankush-rathi-154135-925067.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-estudiodelarts-10841375.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-navnidh-5458388.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-pic-matti-450440252-33314882.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-rafaelf1-1060803.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-samsilitongajr-837745.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-simon73-1070386.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-tomas-malik-793526-1998439.jpg`,
-    `${import.meta.env.BASE_URL}toggle/pexels-wijs-wise-136435282-34025385.jpg`
+    new URL('../../public/toggle/pexels-ankush-rathi-154135-925067.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-estudiodelarts-10841375.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-navnidh-5458388.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-pic-matti-450440252-33314882.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-rafaelf1-1060803.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-samsilitongajr-837745.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-simon73-1070386.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-tomas-malik-793526-1998439.jpg', import.meta.url).href,
+    new URL('../../public/toggle/pexels-wijs-wise-136435282-34025385.jpg', import.meta.url).href
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -380,8 +383,8 @@ export default function HomePage2() {
               {/* Secondary Image */}
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                 <img
-                  src={`${import.meta.env.BASE_URL}dramatic-coastline-ocean-cliffs-sunset.jpg`}
-                  alt="Dramatic Coastline Sunset"
+                  src={fallbackImage}
+                  alt="Dramatic Coastline"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
