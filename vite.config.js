@@ -39,7 +39,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom'],
   },
+  // Removed jsxInject to prevent duplicate React import
   esbuild: {
-    jsxInject: `import React from 'react'`,
+    jsx: 'automatic',
+    jsxImportSource: 'react',
   },
 });
