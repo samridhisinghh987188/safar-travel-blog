@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AirplaneRoute from "@/components/AirplaneRoute";
-// Images in public folder can be referenced directly
+// Images in public folder should be referenced with absolute paths
 const heroImage = '/homepage2.png';
 const landingImage = '/landingbg.jpg';
 const fallbackImage = '/placeholder.jpg';

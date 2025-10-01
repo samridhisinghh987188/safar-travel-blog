@@ -30,6 +30,7 @@ export default defineConfig(({ mode }) => {
       assetsDir: 'assets',
       emptyOutDir: true,
       sourcemap: true,
+      assetsInlineLimit: 0, // Ensure all assets are emitted as files
       rollupOptions: {
         output: {
           manualChunks: {
@@ -38,10 +39,18 @@ export default defineConfig(({ mode }) => {
           },
           entryFileNames: 'assets/[name].[hash].js',
           chunkFileNames: 'assets/[name].[hash].js',
-          assetFileNames: 'assets/[name].[hash][extname]'
+          assetFileNames: (assetInfo) => {
+            const info = assetInfo.name.split('.');
+            const ext = info[info.length - 1];
+            if (/\.(png|jpe?g|svg|gif|webp|avif)$/i.test(assetInfo.name)) {
+              return `assets/images/[name].[hash][extname]`;
+            }
+            return `assets/[name].[hash][extname]`;
+          }
         },
       },
     },
+    publicDir: 'public',
     esbuild: {
       jsx: 'automatic',
     },
