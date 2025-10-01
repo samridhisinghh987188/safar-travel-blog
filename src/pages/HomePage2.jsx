@@ -32,21 +32,22 @@ export default function HomePage2() {
     };
   }, [location]);
   
-  const heroSrc = "/homepage2.png"; // using your uploaded image from public/homepage2
-  const heroSrcAlt = "/landingbg.jpg"; // alternative background
-  const fallbackHero = "/dramatic-coastline-ocean-cliffs-sunset.jpg";
+  // Using import.meta.env.BASE_URL for Vercel compatibility
+  const heroSrc = `${import.meta.env.BASE_URL}homepage2.png`; // using your uploaded image from public/homepage2
+  const heroSrcAlt = `${import.meta.env.BASE_URL}landingbg.jpg`; // alternative background
+  const fallbackHero = `${import.meta.env.BASE_URL}dramatic-coastline-ocean-cliffs-sunset.jpg`;
 
   // Toggle gallery images from public/toggle folder
   const toggleImages = [
-    "/toggle/pexels-ankush-rathi-154135-925067.jpg",
-    "/toggle/pexels-estudiodelarts-10841375.jpg",
-    "/toggle/pexels-navnidh-5458388.jpg",
-    "/toggle/pexels-pic-matti-450440252-33314882.jpg",
-    "/toggle/pexels-rafaelf1-1060803.jpg",
-    "/toggle/pexels-samsilitongajr-837745.jpg",
-    "/toggle/pexels-simon73-1070386.jpg",
-    "/toggle/pexels-tomas-malik-793526-1998439.jpg",
-    "/toggle/pexels-wijs-wise-136435282-34025385.jpg"
+    `${import.meta.env.BASE_URL}toggle/pexels-ankush-rathi-154135-925067.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-estudiodelarts-10841375.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-navnidh-5458388.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-pic-matti-450440252-33314882.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-rafaelf1-1060803.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-samsilitongajr-837745.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-simon73-1070386.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-tomas-malik-793526-1998439.jpg`,
+    `${import.meta.env.BASE_URL}toggle/pexels-wijs-wise-136435282-34025385.jpg`
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -379,7 +380,7 @@ export default function HomePage2() {
               {/* Secondary Image */}
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
                 <img
-                  src="/dramatic-coastline-ocean-cliffs-sunset.jpg"
+                  src={`${import.meta.env.BASE_URL}dramatic-coastline-ocean-cliffs-sunset.jpg`}
                   alt="Dramatic Coastline Sunset"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
